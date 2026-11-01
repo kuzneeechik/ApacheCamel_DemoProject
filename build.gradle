@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation platform('org.apache.camel:camel-bom:4.22.0')
+
+    implementation 'org.apache.camel:camel-core'
+    implementation 'org.apache.camel:camel-direct'
+
+    implementation 'org.slf4j:slf4j-api:2.0.17'
+    runtimeOnly 'org.slf4j:slf4j-simple:2.0.17'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
+}
+
+application {
+    mainClass = 'com.example.orders.Main'
+}
+
+test {
+    useJUnitPlatform()
+}
